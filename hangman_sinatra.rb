@@ -13,9 +13,14 @@ def go
 end
 
 get '/' do
+  @files = File.readlines("five_desk.txt")
+  @pick = @files.select { |w| w.size > 5 && w.size < 12 }.sample
 
-@session = session[:number] = rand(10)
+  @secret_word = @pick
+  @secret_word.downcase!
 
+@session = session[:number] = @secret_word
+@@guessesz = session[:guessesz] = 11
 
 
 erb :index
@@ -23,11 +28,13 @@ end
 
 get '/outplause' do
 @session = session[:number]
-if params[:guess].to_i == session[:number].to_i
+if  @session.include?(params[:guess])
+  #session[:number].include?(params[:guess])
   @message = 'Yes'
   erb :come
 else
   @message = 'No'
+  @@guessesz -= 1
   erb :come
 
 end
