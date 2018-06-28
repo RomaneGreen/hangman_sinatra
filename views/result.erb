@@ -1,9 +1,19 @@
+<style>
+      body {
+        background: black;
+        text-align: center;
+        margin-top: .5rem;
+      }
+      p,h1,h3,h4 {
+        color: gold;
+      }
+    </style>
 
+ <h1>Hangman &#9786;</h1>
 
-<%=@session%>
+<img src= <%=@image%>/>
 
-<img src= <%=@image%>/> 
-<h1>Welcome to Hangman</h1>
+<h3> <%=@session%> </h3>
 <h4>Enter a letter a click guess to play!</h4>
 
 <form>
@@ -12,4 +22,4 @@
 </form>
 
 <p>Guesses Remaining - <%=@@guessesz%></p> <br>
-<%=@message%>
+<p>  <%=@message%> </p>

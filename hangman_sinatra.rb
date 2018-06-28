@@ -20,13 +20,21 @@ get '/output' do
 @session = session[:word]
 if  @session.include?(params[:guess])
     @message = 'Correct'
+
     @image = "images/"+@@guessesz.to_s+".jpg"
+  erb :result
+elsif @@guessesz == 1
+  @message = 'GAME OVER! You lost!'
+  @@guessesz = 0
+  @image = "images/"+@@guessesz.to_s+".jpg"
   erb :result
 else
   @message = 'Incorrect'
   @@guessesz -= 1
   @image = "images/"+@@guessesz.to_s+".jpg"
   erb :result
+
+
 end
 
 end

@@ -1,11 +1,21 @@
 
+<style>
+      body {
+        background: black;
+        text-align: center;
+        margin-top: .5rem;
+      }
+      p,h1,h3,h4 {
+        color: gold;
+      }
+    </style>
 
-<%=@session%>
+<h1>Hangman! &#9786;</h1>
 
 
 <img src= <%=@image%>/>
 
-<h1>Welcome to Hangman!</h1>
+<h3>  <%=@session%> </h3>
 <h4>Enter a letter a click guess to play</h4>
 
 <form action="/output">
@@ -13,4 +23,5 @@
      <input type="submit" value='Guess!'>
 </form>
 
+<p>Guesses Remaining - <%=@@guessesz%></p> <br>
 <%=@message%>
