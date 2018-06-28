@@ -12,14 +12,15 @@
 
 <h1>Hangman! &#9786;</h1>
 
+ <p> <%=@session%> </p>
 
 <img src= <%=@image%>/>
 
-<h3>  <%=@session%> </h3>
+<h3>  <%=@final_word%> </h3>
 <h4>Enter a letter a click guess to play</h4>
 
 <form action="/output">
-     <input type="text" name='guess'>
+     <input type="text" name='guess' required>
      <input type="submit" value='Guess!'>
 </form>
 
